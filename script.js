@@ -24,6 +24,14 @@ function generatePassword(){
   var confirmNumbers = confirm("Should it have numbers?")
   var confirmSpecialChar = confirm("What about any special characters?")
 
+  // If user skips all prompts, it generates randomly using any criteria
+  if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialChar){
+    confirmLowercase = true
+    confirmUppercase = true
+    confirmNumbers = true
+    confirmSpecialChar = true
+  }
+
   // Generates password based on specific criteria
   var charChoice = ""
   if (confirmLowercase) {
